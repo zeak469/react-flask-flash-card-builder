@@ -15,7 +15,7 @@ I wanted to learn more about rust and implementing it in a web application. I al
 ![](React_App_Using_Flask_And_Rust.gif)
 
 # Lessons learned
-Cannot use wasm for this application. I attempting to integrate rust in with wasm_bindgen. File operations in wasm in rust are not supported. Attempting to do so will raise the error, “operation not supported.” Therefore, the next best step is to use the executable.
+Cannot use wasm for this application. I attempted to integrate rust in with wasm_bindgen. File operations in wasm in rust are not supported. Attempting to do so will raise the error, “operation not supported.” Therefore, the next best step was to use flask!
 
 React hooks are cool!
 
