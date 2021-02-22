@@ -5,7 +5,7 @@ To help me study for my cyber security quiz
 It is running a flask script that runs rust code that was complied to base c. The rust code opens a csv, containing the questions and thier respective answers (see example.csv in /api) and converts it to json (a readable format for react). It then sends the json to react through flask and react handles the display logic to show the flash cards.
 
 # Why 
-The whole purpose of this was to learn more about rust and implementing it in a web application
+I wanted to learn more about rust and implementing it in a web application. I also needed to study for my cyber security quiz. Many of the online flash card builders do not support multi choice questions, so I built one myself.
 
 # App start
 1. npm run start-api (You need python 3.9 in your home C:\)
