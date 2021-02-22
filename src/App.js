@@ -6,12 +6,18 @@ import './App.css';
 
   
 const reducer = (state, action) => {
+  var newState = {...state}
   switch (action.type) {
     case "on":
       const newSelectedValues = [...state.selectedValues]
       newSelectedValues[action.payload] = !state.selectedValues[action.payload]
-      const newState = {...state, selectedValues: newSelectedValues}
+      newState = {...state, selectedValues: newSelectedValues}
       return newState
+    case "reset":
+      const initalState = [false, false, false, false]
+      newState = {...state, selectedValues: initalState}
+      return newState
+
     default:
       return newState
   }
@@ -23,14 +29,14 @@ function FlashCard({switchOn, question, answers, flashCardNumber, setUserAnswer}
     setUserAnswer(event.target.value)
   }
 
-  const handleChangeCheckBox = (i) => {
+  const handleChangeCheckBox = (event, i) => {
     switchOn(i)
   }
 
   const answersComponents = answers.map((ans, i) => {
     return (
       <div key={`${i}`}>
-        <input type="checkbox" value={i} onChange={() => handleChangeCheckBox(i)} />
+        <input type="checkbox" value={i} onChange={(event) => handleChangeCheckBox(event, i)} />
         <label key={i}>{ans}</label>    
       </div>
     )
@@ -149,6 +155,8 @@ function App() {
     else{
       setAnswer(true)
     }
+    
+    dispatch({type: 'reset'})
     setFlashCardNumber(flashCardNumber + 1)
     if (data[flashCardNumber].answers[0].length == 0){
       if (data[flashCardNumber].right_answer === userAnswer){
